@@ -1,13 +1,14 @@
 function UserInputForm(props){
     const handleChange = (e) => {
-        props.handleInputValue(e.target.value);
+        if(e.which === 13)
+            props.handleInputValue(e.target.value);
     }
 
     return (
         <input
             type="text"
             placeholder="Enter text here"
-            onChange={handleChange}
+            onKeyPress={handleChange}
         />
     );
 }
