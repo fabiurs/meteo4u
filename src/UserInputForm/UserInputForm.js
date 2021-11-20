@@ -1,5 +1,3 @@
-
-
 function UserInputForm() {
     return (
         <div>
