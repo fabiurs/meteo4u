@@ -3,7 +3,7 @@ import './App.css';
 import UserInputForm from "./UserInputForm/UserInputForm";
 import CurrentDayForecast from "./CurrentDayForecast/CurrentDayForecast";
 import NextDaysForecast from "./NextDaysForecast/NextDaysForecast";
-import {useState} from "react";
+
 
 const api = {
     key: "b35a515c553dadf34292da5798253cbf",
@@ -12,13 +12,24 @@ const api = {
 
 class App extends React.Component{
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            weather: undefined,
+            locationName: ''
+        };
+    }
+    handleInputValue = (inputValue) => {
+        console.log(inputValue)
+        this.setState({ locationName: inputValue });
+    }
 
   render() {
       return (
           <div className="App">
               <main className="appContainer">
-                  <UserInputForm />
-                  <CurrentDayForecast />
+                  <UserInputForm handleInputValue={this.handleInputValue} />
+                  <CurrentDayForecast content={this.state.locationName}/>
                   <NextDaysForecast />
               </main>
           </div>

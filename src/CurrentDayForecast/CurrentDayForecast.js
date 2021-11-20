@@ -5,6 +5,7 @@ class CurrentDayForecast extends React.Component{
         return (
             <div>
                 <p>This is CurrentDayForecast</p>
+                <p>{this.props.content}</p>
             </div>
         );
     }
