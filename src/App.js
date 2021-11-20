@@ -1,3 +1,4 @@
+import React from "react";
 import './App.css';
 import UserInputForm from "./UserInputForm/UserInputForm";
 import CurrentDayForecast from "./CurrentDayForecast/CurrentDayForecast";
@@ -9,19 +10,20 @@ const api = {
     base: "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}"
 }
 
-function App() {
+class App extends React.Component{
 
-    const [weather, setWeather] = useState({});
 
-  return (
-    <div className="App">
-      <main className="appContainer">
-          <UserInputForm/>
-          <CurrentDayForecast/>
-          <NextDaysForecast/>
-      </main>
-    </div>
-  );
+  render() {
+      return (
+          <div className="App">
+              <main className="appContainer">
+                  <UserInputForm />
+                  <CurrentDayForecast />
+                  <NextDaysForecast />
+              </main>
+          </div>
+      );
+  }
 }
 
 export default App;
