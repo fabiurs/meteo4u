@@ -4,7 +4,10 @@ import UserInputForm from "./UserInputForm/UserInputForm";
 function App() {
   return (
     <div className="App">
-      <UserInputForm/>
+      <div className="appWrapper">
+          <UserInputForm/>
+
+      </div>
     </div>
   );
 }
