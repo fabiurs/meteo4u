@@ -69,14 +69,13 @@ class App extends React.Component{
                   <main className="appContainer">
                       <UserInputForm handleInputValue={this.handleInputValue} />
 
-                      <CityName cityName={this.state.locationName}></CityName>
-
                       { this.state.infoLoaded
                           ? <div>
-                              <Forecast weather={this.state.weather}></Forecast>
+                              <CityName cityName={this.state.locationName}/>
+                              <Forecast weather={this.state.weather}/>
                             </div>
                           :
-                            <LoadingSpinner></LoadingSpinner>
+                            <LoadingSpinner/>
                       }
 
                   </main>

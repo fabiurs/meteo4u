@@ -1,15 +1,21 @@
 import React from "react";
+import Temperature from "./Temperature/Temperature";
+import WeatherTextAndIcon from "./WeatherTextAndIcon/WeatherTextAndIcon";
 
 class CurrentDayForecast extends React.Component{
 
     render() {
 
-        let weatherIcon = "http://openweathermap.org/img/wn/" + this.props.weather["weather"][0]["icon"] + "@2x.png";
-
+    console.log(this.props.weather);
         return (
             <div>
-                <p>Current Day Forecast</p>
-                <img src={weatherIcon} alt="weather-icon"/>
+                <WeatherTextAndIcon
+                    info={this.props.weather["weather"][0]}
+                />
+                <Temperature
+                temp={this.props.weather["temp"]}
+                feelsLike={this.props.weather["feels_like"]}
+                />
             </div>
         );
     }
