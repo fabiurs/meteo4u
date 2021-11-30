@@ -3,7 +3,7 @@ import React from "react";
 class CityName extends React.Component{
     render() {
         return (
-            <div>
+            <div className="cityNameContainer">
                 <p>{this.props.cityName}</p>
             </div>
         );

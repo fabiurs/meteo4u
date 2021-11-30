@@ -5,12 +5,16 @@ class NextDaysForecast extends React.Component{
 
     render() {
 
-        let days = this.props.weather.map((dailyWeather) =>
-            <Day weather={dailyWeather}/>
+        let days = this.props.weather.map((dailyWeather, index) =>
+            <Day
+                key={index}
+                weather={dailyWeather}/>
         );
 
+        days.shift();
+
         return (
-            <div>
+            <div className="container7DaysForecast">
                 {days}
             </div>
         );

@@ -19,13 +19,15 @@ class App extends React.Component{
         this.state = {
             weather: undefined,
             locationName: '',
-            infoLoaded: false
+            infoLoaded: false,
+            infoRequested: false
         };
     }
 
     searchForCity = async (location) => {
 
         this.setState({infoLoaded: false});
+        this.setState({infoRequested: true});
 
         let locationData = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=${apiForWeather.key}`)
             .then(result => {
@@ -51,7 +53,7 @@ class App extends React.Component{
             this.setState({weather: weatherData});
 
             this.setState({infoLoaded: true});
-            console.log(this.state.weather);
+            this.setState({infoRequested: false});
         }else{
             console.log("eroare");
         }
@@ -65,21 +67,30 @@ class App extends React.Component{
 
       render() {
           return (
-              <div className="App">
                   <main className="appContainer">
-                      <UserInputForm handleInputValue={this.handleInputValue} />
+                      <div className="appBackground">
 
-                      { this.state.infoLoaded
-                          ? <div>
-                              <CityName cityName={this.state.locationName}/>
-                              <Forecast weather={this.state.weather}/>
-                            </div>
-                          :
-                            <LoadingSpinner/>
-                      }
+                      </div>
+                      <div className="appContent">
+                          <UserInputForm handleInputValue={this.handleInputValue} />
 
+                          { this.state.infoLoaded
+                              ?   (
+                                  <div className="meteoResults">
+                                      <CityName cityName={this.state.locationName}/>
+                                      <Forecast weather={this.state.weather}/>
+                                  </div>
+                              )
+                              :
+                              ( this.state.infoRequested
+                                      ? <LoadingSpinner/>
+                                      :
+                                      <p>Search for a city</p>
+                              )
+                          }
+
+                      </div>
                   </main>
-              </div>
           );
       }
 }
