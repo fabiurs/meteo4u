@@ -29,6 +29,7 @@ class App extends React.Component{
         this.setState({infoLoaded: false});
         this.setState({infoRequested: true});
 
+        //get coordinates(lat, long) of the city
         let locationData = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=${apiForWeather.key}`)
             .then(result => {
                 return result
@@ -36,6 +37,7 @@ class App extends React.Component{
             .catch(err => {
                 console.log(err);
             });
+
         // get lat and long from the result
         if(locationData["data"].length > 0){
             let locationLat = locationData["data"][0]["lat"].toFixed(2);
@@ -43,27 +45,45 @@ class App extends React.Component{
 
             this.setState({locationName: locationData["data"][0]["name"]});
 
-            let weatherData = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${locationLat}&lon=${locationLong}&units=metric&appid=b35a515c553dadf34292da5798253cbf`)
-                .then(result => {
-                    return result["data"];
-                })
-                .catch(err => {
-                    console.log(err);
-                });
-            this.setState({weather: weatherData});
-
-            this.setState({infoLoaded: true});
-            this.setState({infoRequested: false});
+            //get weather for provided coodrinates(lat, long)
+            this.getWeatherForGivenCoordinates(locationLat, locationLong).then();
         }else{
             console.log("eroare");
         }
+    };
+
+    getWeatherForGivenCoordinates = async (locationLat, locationLong) =>{
+
+        let weatherData = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${locationLat}&lon=${locationLong}&units=metric&appid=b35a515c553dadf34292da5798253cbf`)
+            .then(result => {
+                return result["data"];
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        this.setState({weather: weatherData});
+
+        this.setState({infoLoaded: true});
+        this.setState({infoRequested: false});
+    };
+
+
+    showPosition = (position) => {
+        this.getWeatherForGivenCoordinates(position.coords.latitude, position.coords.longitude).then();
     }
 
-    handleInputValue = (inputValue) => {
-        if(inputValue.length > 0){
-            this.searchForCity(inputValue);
+    getUserLocation = () =>{
+
+        if (navigator.geolocation) {
+            this.setState({infoLoaded: false});
+            this.setState({infoRequested: true});
+
+            navigator.geolocation.getCurrentPosition(this.showPosition);
+        } else {
+            console.log("nu e ok")
         }
     }
+
 
       render() {
           return (
@@ -72,7 +92,7 @@ class App extends React.Component{
 
                       </div>
                       <div className="appContent">
-                          <UserInputForm handleInputValue={this.handleInputValue} />
+                          <UserInputForm searchForCity={this.searchForCity} getUserLocation={this.getUserLocation}/>
 
                           { this.state.infoLoaded
                               ?   (
