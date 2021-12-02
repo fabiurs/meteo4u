@@ -6,20 +6,24 @@ function UserInputForm(props){
         }
     }
 
+    const handleInputCityButton = () => {
+
+    }
+
     return (
         <div className="userInputForm">
             <div className="topInputForm">
                 <input
                     type="text"
-                    placeholder="Enter text here"
+                    placeholder="Search for a city"
                     onKeyPress={handleInputCity}
                 />
-                <img src="../photos/location.png"
-                     alt="location"
-                    onClick={props.getUserLocation}
-                />
+
+                <i className="fas fa-map-marker-alt"
+                   onClick={props.getUserLocation}></i>
             </div>
-            <button type="submit">Search</button>
+            <button type="submit"
+                    onClick={handleInputCityButton}>Search</button>
         </div>
     );
 }

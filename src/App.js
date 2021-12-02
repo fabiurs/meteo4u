@@ -20,7 +20,8 @@ class App extends React.Component{
             weather: undefined,
             locationName: '',
             infoLoaded: false,
-            infoRequested: false
+            infoRequested: false,
+            cityFound: true
         };
     }
 
@@ -48,7 +49,10 @@ class App extends React.Component{
             //get weather for provided coodrinates(lat, long)
             this.getWeatherForGivenCoordinates(locationLat, locationLong).then();
         }else{
-            console.log("eroare");
+            this.setState({locationName: "No city was found with this name.."});
+            this.setState({cityFound: false})
+            this.setState({infoLoaded: true});
+            this.setState({infoRequested: false});
         }
     };
 
@@ -61,6 +65,7 @@ class App extends React.Component{
             .catch(err => {
                 console.log(err);
             });
+        this.setState({cityFound: true})
         this.setState({weather: weatherData});
 
         this.setState({infoLoaded: true});
@@ -98,14 +103,17 @@ class App extends React.Component{
                               ?   (
                                   <div className="meteoResults">
                                       <CityName cityName={this.state.locationName}/>
-                                      <Forecast weather={this.state.weather}/>
+
+                                      {this.state.cityFound
+                                            ? <Forecast weather={this.state.weather}/>
+                                            : <></>}
                                   </div>
                               )
                               :
                               ( this.state.infoRequested
                                       ? <LoadingSpinner/>
                                       :
-                                      <p>Search for a city</p>
+                                      <></>
                               )
                           }
 

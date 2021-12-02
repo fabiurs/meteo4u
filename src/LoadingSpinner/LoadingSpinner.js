@@ -4,8 +4,15 @@ class LoadingSpinner extends React.Component{
 
     render() {
         return (
-            <div className="spinner-grow" role="status">
-                <span className="visually-hidden">Loading...</span>
+            <div className="lds-roller">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
         );
     }
