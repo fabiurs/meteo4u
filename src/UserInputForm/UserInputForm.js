@@ -1,3 +1,5 @@
+import FadeIn from 'react-fade-in';
+
 function UserInputForm(props){
     const handleInputCity = (e) => {
         if(e.which === 13) {
@@ -13,6 +15,7 @@ function UserInputForm(props){
     return (
         <div className="userInputForm">
             <div className="topInputForm">
+                <FadeIn className="topInputFormFix" delay={500}>
                 <input
                     type="text"
                     placeholder="Search for a city"
@@ -21,9 +24,13 @@ function UserInputForm(props){
 
                 <i className="fas fa-map-marker-alt"
                    onClick={props.getUserLocation}></i>
+                </FadeIn>
             </div>
-            <button type="submit"
+
+            <FadeIn delay={1500}>
+                <button type="submit"
                     onClick={handleInputCityButton}>Search</button>
+            </FadeIn>
         </div>
     );
 }

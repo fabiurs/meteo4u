@@ -28,6 +28,14 @@ p, span{
   background-color: black;
 }
 
+.topInputFormFix{
+  display: flex;
+}
+
+.feelsLike{
+  display: inherit;
+}
+
 .appBackground img{
   position: absolute;
   width: 100%;

@@ -1,4 +1,5 @@
 import React from "react";
+
 import img01d from '../photos/img01d.jpg'
 import img01n from '../photos/img01n.jpg'
 
@@ -17,6 +18,7 @@ import img13n from '../photos/img13n.jpg'
 import img50d from '../photos/img50d.jpg'
 import img50n from '../photos/img50n.jpg'
 
+import imgbkg from '../photos/firstBackground.jpg'
 
 
 class AppBackground extends React.Component{
@@ -34,10 +36,13 @@ class AppBackground extends React.Component{
         50d.png 	50n.png 	mist
 */
 
-
         return (
-            <div className="appBackground">
 
+            <div className="appBackground">
+                {   this.props.iconCode === undefined
+                    ?   <img src={imgbkg} alt="background"/>
+                    : <></>
+                }
                 {   this.props.iconCode === "01d"
                     ?   <img src={img01d} alt="background"/>
                     : <></>
