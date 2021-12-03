@@ -274,4 +274,26 @@ p, span{
     .containerDay{
         width: 48%;
     }
+
+  .userInputForm i{
+    margin: 0 0 20px 0;
+  }
+
+  .topInputFormFix{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .topInputForm, .topInputFormFix,
+  .topInputForm, .topInputFormFix div,
+  .topInputForm, .topInputFormFix input{
+    max-width: 100%;
+  }
+
+  .currentDayForecast{
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
 }
+
