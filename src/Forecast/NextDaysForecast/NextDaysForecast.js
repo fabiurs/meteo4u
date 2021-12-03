@@ -1,6 +1,8 @@
 import React from "react";
 import Day from "./Day/Day";
 
+import FadeIn from 'react-fade-in';
+
 class NextDaysForecast extends React.Component{
 
     render() {
@@ -14,9 +16,11 @@ class NextDaysForecast extends React.Component{
         days.shift();
 
         return (
-            <div className="container7DaysForecast">
-                {days}
-            </div>
+            <FadeIn delay={900}>
+                <div className="container7DaysForecast">
+                    {days}
+                </div>
+            </FadeIn>
         );
     }
 }

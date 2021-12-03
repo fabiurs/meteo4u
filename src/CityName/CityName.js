@@ -1,11 +1,14 @@
 import React from "react";
+import FadeIn from 'react-fade-in';
 
 class CityName extends React.Component{
     render() {
         return (
-            <div className="cityNameContainer">
-                <p>{this.props.cityName}</p>
-            </div>
+            <FadeIn>
+                <div className="cityNameContainer">
+                    <p>{this.props.cityName}</p>
+                </div>
+            </FadeIn>
         );
     }
 }

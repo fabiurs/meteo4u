@@ -8,6 +8,7 @@ import LoadingSpinner from "./LoadingSpinner/LoadingSpinner";
 import Forecast from "./Forecast/Forecast";
 import AppBackground from "./AppBackground/AppBackground";
 
+
 const apiForWeather = {
     key: "b35a515c553dadf34292da5798253cbf",
     base: "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}"
@@ -101,26 +102,25 @@ class App extends React.Component{
                   <main className="appContainer">
                       <AppBackground iconCode={this.state.weatherIconCode} />
                       <div className="appContent">
-                          <UserInputForm searchForCity={this.searchForCity} getUserLocation={this.getUserLocation}/>
+                      <UserInputForm searchForCity={this.searchForCity} getUserLocation={this.getUserLocation}/>
 
-                          { this.state.infoLoaded
-                              ?   (
-                                  <div className="meteoResults">
-                                      <CityName cityName={this.state.locationName}/>
+                      { this.state.infoLoaded
+                          ?   (
+                              <div className="meteoResults">
+                                  <CityName cityName={this.state.locationName}/>
 
-                                      {this.state.cityFound
-                                            ? <Forecast weather={this.state.weather}/>
-                                            : <></>}
-                                  </div>
-                              )
-                              :
-                              ( this.state.infoRequested
-                                      ? <LoadingSpinner/>
-                                      :
-                                      <></>
-                              )
-                          }
-
+                                  {this.state.cityFound
+                                        ? <Forecast weather={this.state.weather}/>
+                                        : <></>}
+                              </div>
+                          )
+                          :
+                          ( this.state.infoRequested
+                                  ? <LoadingSpinner/>
+                                  :
+                                  <></>
+                          )
+                      }
                       </div>
                   </main>
           );
