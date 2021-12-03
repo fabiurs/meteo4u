@@ -7,10 +7,11 @@ import CityName from "./CityName/CityName";
 import LoadingSpinner from "./LoadingSpinner/LoadingSpinner";
 import Forecast from "./Forecast/Forecast";
 import AppBackground from "./AppBackground/AppBackground";
+import getApiKey from "./apiKey";
 
 
 const apiForWeather = {
-    key: "b35a515c553dadf34292da5798253cbf",
+    key: getApiKey(),
     base: "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}"
 }
 
