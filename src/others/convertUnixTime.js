@@ -3,7 +3,9 @@ function timeConvertDayAndMonth(UNIX_timestamp){
     let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     let month = months[a.getMonth()];
     let date = a.getDate();
-    let time = date + ' ' + month;
+    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let day = days[a.getDay()];
+    let time = day + ', ' +  date + ' ' + month;
     return time;
 }
 
