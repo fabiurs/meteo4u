@@ -6,6 +6,7 @@ import axios from 'axios';
 import CityName from "./CityName/CityName";
 import LoadingSpinner from "./LoadingSpinner/LoadingSpinner";
 import Forecast from "./Forecast/Forecast";
+import AppBackground from "./AppBackground/AppBackground";
 
 const apiForWeather = {
     key: "b35a515c553dadf34292da5798253cbf",
@@ -21,7 +22,8 @@ class App extends React.Component{
             locationName: '',
             infoLoaded: false,
             infoRequested: false,
-            cityFound: true
+            cityFound: true,
+            weatherIconCode: undefined
         };
     }
 
@@ -65,15 +67,19 @@ class App extends React.Component{
             .catch(err => {
                 console.log(err);
             });
+
         this.setState({cityFound: true})
         this.setState({weather: weatherData});
 
+
+        this.setState({weatherIconCode: weatherData["current"]["weather"][0]["icon"]});
         this.setState({infoLoaded: true});
         this.setState({infoRequested: false});
     };
 
 
     showPosition = (position) => {
+        this.setState({locationName: "Your location"});
         this.getWeatherForGivenCoordinates(position.coords.latitude, position.coords.longitude).then();
     }
 
@@ -85,7 +91,7 @@ class App extends React.Component{
 
             navigator.geolocation.getCurrentPosition(this.showPosition);
         } else {
-            console.log("nu e ok")
+            console.log("error");
         }
     }
 
@@ -93,9 +99,7 @@ class App extends React.Component{
       render() {
           return (
                   <main className="appContainer">
-                      <div className="appBackground">
-
-                      </div>
+                      <AppBackground iconCode={this.state.weatherIconCode} />
                       <div className="appContent">
                           <UserInputForm searchForCity={this.searchForCity} getUserLocation={this.getUserLocation}/>
 
