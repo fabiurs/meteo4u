@@ -10,7 +10,7 @@ class WeatherTextAndIcon extends React.Component{
             <div className="iconAndTextContainer">
                 <p>{this.props.info["main"]}</p>
                 <img src={weatherIcon} alt="weather-icon"/>
-                <br/>
+
             </div>
         );
     }
