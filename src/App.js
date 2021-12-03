@@ -34,7 +34,7 @@ class App extends React.Component{
         this.setState({infoRequested: true});
 
         //get coordinates(lat, long) of the city
-        let locationData = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=${apiForWeather.key}`)
+        let locationData = await axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=${apiForWeather.key}`)
             .then(result => {
                 return result
             })
