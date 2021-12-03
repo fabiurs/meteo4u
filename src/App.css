@@ -85,6 +85,19 @@ p, span{
 .currentDayForecast .containerData{
   display: flex;
   flex-direction: column;
+  justify-content: center;
+}
+
+.currentDayForecast .containerData span{
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.currentDayForecast .iconAndTextContainer p{
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  margin-bottom: 0;
 }
 
 .iconAndTextContainer{
@@ -141,6 +154,10 @@ p, span{
   font-style: italic;
 }
 
+.dayDate, .tempMin, .tempMax{
+  text-align: center;
+}
+
 .userInputForm button{
   border: 1px solid white;
   background: transparent;
@@ -150,8 +167,7 @@ p, span{
   transition: all 0.4s ease;
 }
 .userInputForm button:hover{
-  color: black;
-  background: rgba(255, 255, 255, 0.58);
+  background: black;
 }
 
 .lds-roller {

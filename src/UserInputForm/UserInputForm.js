@@ -1,38 +1,51 @@
 import FadeIn from 'react-fade-in';
+import React from "react";
 
-function UserInputForm(props){
-    const handleInputCity = (e) => {
+class UserInputForm extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.myRef = React.createRef();
+    }
+
+    handleInputCity = (e) => {
         if(e.which === 13) {
             if(e.target.value.length > 0)
-                props.searchForCity(e.target.value);
+                this.props.searchForCity(e.target.value);
         }
     }
 
-    const handleInputCityButton = () => {
-
+    handleInputCityButton = () => {
+        let userInput = this.refs.myRef.value;
+        if(userInput.length > 0){
+            this.props.searchForCity(userInput);
+        }
     }
 
-    return (
-        <div className="userInputForm">
-            <div className="topInputForm">
-                <FadeIn className="topInputFormFix" delay={500}>
-                <input
-                    type="text"
-                    placeholder="Search for a city"
-                    onKeyPress={handleInputCity}
-                />
+    render(){
+        return (
+            <div className="userInputForm">
+                <div className="topInputForm">
+                    <FadeIn className="topInputFormFix" delay={500}>
+                        <input
+                            ref="myRef"
+                            type="text"
+                            placeholder="Search for a city"
+                            onKeyPress={this.handleInputCity}
+                        />
 
-                <i className="fas fa-map-marker-alt"
-                   onClick={props.getUserLocation}></i>
+                        <i className="fas fa-map-marker-alt"
+                           onClick={this.props.getUserLocation}></i>
+                    </FadeIn>
+                </div>
+
+                <FadeIn delay={1500}>
+                    <button type="submit"
+                            onClick={this.handleInputCityButton}>Search</button>
                 </FadeIn>
             </div>
-
-            <FadeIn delay={1500}>
-                <button type="submit"
-                    onClick={handleInputCityButton}>Search</button>
-            </FadeIn>
-        </div>
-    );
+        );
+    }
 }
 
 export default UserInputForm;
