@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/meteo4u/static/css/main.6d6d2bac.chunk.css",
+    "main.js": "/meteo4u/static/js/main.91c8d0ae.chunk.js",
+    "main.js.map": "/meteo4u/static/js/main.91c8d0ae.chunk.js.map",
+    "runtime-main.js": "/meteo4u/static/js/runtime-main.c9a13f71.js",
+    "runtime-main.js.map": "/meteo4u/static/js/runtime-main.c9a13f71.js.map",
+    "static/js/2.0a697ee3.chunk.js": "/meteo4u/static/js/2.0a697ee3.chunk.js",
+    "static/js/2.0a697ee3.chunk.js.map": "/meteo4u/static/js/2.0a697ee3.chunk.js.map",
+    "static/js/3.94518767.chunk.js": "/meteo4u/static/js/3.94518767.chunk.js",
+    "static/js/3.94518767.chunk.js.map": "/meteo4u/static/js/3.94518767.chunk.js.map",
+    "index.html": "/meteo4u/index.html",
+    "static/css/main.6d6d2bac.chunk.css.map": "/meteo4u/static/css/main.6d6d2bac.chunk.css.map",
+    "static/js/2.0a697ee3.chunk.js.LICENSE.txt": "/meteo4u/static/js/2.0a697ee3.chunk.js.LICENSE.txt",
+    "static/media/firstBackground.a1bf6ff5.jpg": "/meteo4u/static/media/firstBackground.a1bf6ff5.jpg",
+    "static/media/img01d.928fb3ad.jpg": "/meteo4u/static/media/img01d.928fb3ad.jpg",
+    "static/media/img01n.d11911b0.jpg": "/meteo4u/static/media/img01n.d11911b0.jpg",
+    "static/media/img02d.c34e3587.jpg": "/meteo4u/static/media/img02d.c34e3587.jpg",
+    "static/media/img02n.63d60829.jpg": "/meteo4u/static/media/img02n.63d60829.jpg",
+    "static/media/img09d.807ba528.jpg": "/meteo4u/static/media/img09d.807ba528.jpg",
+    "static/media/img09n.0f9f2139.jpg": "/meteo4u/static/media/img09n.0f9f2139.jpg",
+    "static/media/img11d.89fa1a17.jpg": "/meteo4u/static/media/img11d.89fa1a17.jpg",
+    "static/media/img11n.3a9d936e.jpg": "/meteo4u/static/media/img11n.3a9d936e.jpg",
+    "static/media/img13d.1dc6166e.jpg": "/meteo4u/static/media/img13d.1dc6166e.jpg",
+    "static/media/img13n.89fc6450.jpg": "/meteo4u/static/media/img13n.89fc6450.jpg",
+    "static/media/img50d.91821a34.jpg": "/meteo4u/static/media/img50d.91821a34.jpg",
+    "static/media/img50n.27b1ab95.jpg": "/meteo4u/static/media/img50n.27b1ab95.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c9a13f71.js",
+    "static/js/2.0a697ee3.chunk.js",
+    "static/css/main.6d6d2bac.chunk.css",
+    "static/js/main.91c8d0ae.chunk.js"
+  ]
+}
