@@ -102,25 +102,25 @@ class App extends React.Component{
                   <main className="appContainer">
                       <AppBackground iconCode={this.state.weatherIconCode} />
                       <div className="appContent">
-                      <UserInputForm searchForCity={this.searchForCity} getUserLocation={this.getUserLocation}/>
+                          <UserInputForm searchForCity={this.searchForCity} getUserLocation={this.getUserLocation}/>
 
-                      { this.state.infoLoaded
-                          ?   (
-                              <div className="meteoResults">
-                                  <CityName cityName={this.state.locationName}/>
+                          { this.state.infoLoaded
+                              ?   (
+                                  <div className="meteoResults">
+                                      <CityName cityName={this.state.locationName}/>
 
-                                  {this.state.cityFound
-                                        ? <Forecast weather={this.state.weather}/>
-                                        : <></>}
-                              </div>
-                          )
-                          :
-                          ( this.state.infoRequested
-                                  ? <LoadingSpinner/>
-                                  :
-                                  <></>
-                          )
-                      }
+                                      {this.state.cityFound
+                                            ? <Forecast weather={this.state.weather}/>
+                                            : <></>}
+                                  </div>
+                              )
+                              :
+                              ( this.state.infoRequested
+                                      ? <LoadingSpinner/>
+                                      :
+                                      <></>
+                              )
+                          }
                       </div>
                   </main>
           );
