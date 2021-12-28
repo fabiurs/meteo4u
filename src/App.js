@@ -24,7 +24,8 @@ class App extends React.Component{
             infoLoaded: false,
             infoRequested: false,
             cityFound: true,
-            weatherIconCode: undefined
+            weatherIconCode: undefined,
+            alert: undefined
         };
     }
 
@@ -72,10 +73,19 @@ class App extends React.Component{
         this.setState({cityFound: true})
         this.setState({weather: weatherData});
 
+        if(weatherData["alerts"] !== undefined){
+            this.setState({alert: weatherData["alerts"]});
+        }
+        else{
+            this.setState({alert: undefined});
+        }
+
+
 
         this.setState({weatherIconCode: weatherData["current"]["weather"][0]["icon"]});
         this.setState({infoLoaded: true});
         this.setState({infoRequested: false});
+
     };
 
 
@@ -110,7 +120,7 @@ class App extends React.Component{
                                       <CityName cityName={this.state.locationName}/>
 
                                       {this.state.cityFound
-                                            ? <Forecast weather={this.state.weather}/>
+                                            ? <Forecast alerts={this.state.alert} weather={this.state.weather}/>
                                             : <></>}
                                   </div>
                               )
