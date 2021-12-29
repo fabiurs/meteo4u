@@ -79,9 +79,7 @@ class App extends React.Component{
         else{
             this.setState({alert: undefined});
         }
-
-
-
+        
         this.setState({weatherIconCode: weatherData["current"]["weather"][0]["icon"]});
         this.setState({infoLoaded: true});
         this.setState({infoRequested: false});

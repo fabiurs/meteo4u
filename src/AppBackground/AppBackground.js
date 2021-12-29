@@ -22,7 +22,6 @@ import imgbkg from '../photos/firstBackground.jpg'
 
 
 class AppBackground extends React.Component{
-
     render() {
 /*
         01d.png 	01n.png 	clear sky
@@ -35,9 +34,7 @@ class AppBackground extends React.Component{
         13d.png 	13n.png 	snow
         50d.png 	50n.png 	mist
 */
-
         return (
-
             <div className="appBackground">
                 {   this.props.iconCode === undefined
                     ?   <img src={imgbkg} alt="background"/>
