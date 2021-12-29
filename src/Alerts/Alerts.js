@@ -5,9 +5,9 @@ class Alerts extends React.Component{
 
 
     render() {
-        let alertsArray = undefined;
+        let alertsArray = <Alert />;
         if(this.props.alerts !== undefined){
-            let alertsArray = this.props.alerts.map((alert, index) =>
+            alertsArray = this.props.alerts.map((alert, index) =>
                 <Alert
                     key={index}
                     oneAlert={alert}
@@ -16,12 +16,7 @@ class Alerts extends React.Component{
         }
         return (
            <FadeIn>
-               {
-                   this.props.alerts !== undefined
-                       ?    {alertsArray}
-                       :    <></>
-               }
-
+               {alertsArray}
            </FadeIn>
         );
     }
