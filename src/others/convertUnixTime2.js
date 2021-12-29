@@ -7,7 +7,13 @@ function timeConvertDayAndMonthAndHour(UNIX_timestamp){
     let day = days[a.getDay()];
     let hours = a.getHours();
     // Minutes part from the timestamp
-    let minutes = "0" + a.getMinutes();
+    let minutes;
+    if(a.getMinutes() < 10){
+        minutes = "0" + a.getMinutes();
+    }
+    else{
+        minutes = a.getMinutes();
+    }
 
     let time = day + ', ' +  date + ' ' + month + ', ' + hours + ':' + minutes;
     return time;

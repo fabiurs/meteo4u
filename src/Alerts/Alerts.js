@@ -14,8 +14,14 @@ class Alerts extends React.Component{
                 />
             );
         }
+
         return (
-           <FadeIn>
+           <FadeIn className='alerts-container'>
+               {
+                   this.props.alerts !== undefined
+                    ? <p className="alerts-title">Alerts</p>
+                       : <></>
+               }
                {alertsArray}
            </FadeIn>
         );

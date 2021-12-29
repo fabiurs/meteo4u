@@ -17,6 +17,7 @@ class NextDaysForecast extends React.Component{
 
         return (
             <FadeIn delay={900}>
+                <p className="nextDaysWeatherTitle">Weather for the next 7 days</p>
                 <div className="container7DaysForecast">
                     {days}
                 </div>
